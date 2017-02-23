@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id,password,name,chatworkid,checksuperuser: MyString
+
+two:
+  id,password,name,chatworkid,checksuperuser: MyString
