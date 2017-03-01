@@ -30,8 +30,11 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 
 gem 'autoprefixer-rails'
 
+<<<<<<< HEAD
 gem 'rake', '12.0.0'
 
+=======
+>>>>>>> 27b37f3f2703dd7647bb8d7beb9774757a048037
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
