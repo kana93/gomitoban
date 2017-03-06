@@ -32,6 +32,13 @@ gem 'autoprefixer-rails'
 
 gem 'rake', '12.0.0'
 
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
