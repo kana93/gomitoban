@@ -54,4 +54,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   get "/users" => "users#show"
+  get "/users/edit" => "users#edit"
+  resources :users
 end
