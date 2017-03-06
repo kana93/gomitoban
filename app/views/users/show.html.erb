@@ -10,34 +10,6 @@
 <span class=‘glyphicon glyphicon-heart’ aria-hidden=‘true’></span>
 
 <div class="container">
-  <div class="table-responsive">
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>名前</th>
-        <th>パスワード</th>
-        <th>chatworkのid</th>
-        <th>スーパーユーザか</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @users.each do |user| %>
-      <tr>
-          <td><%= user.id %></td>
-          <td><%= user.name %></td>
-          <td><%= user.password %></td>
-          <td><%= user.chatworkid %></td>
-          <td><%= user.superuser %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  </div>
-</div>
-
-<div class="container">
   <div class="col-md-12">
     <div class="table-responsive">
     <table class="table table-bordered table-hover table-condensed">
