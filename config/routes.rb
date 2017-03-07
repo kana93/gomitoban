@@ -55,5 +55,6 @@ Rails.application.routes.draw do
   #   end
   get "/users" => "users#show"
   get "/users/edit" => "users#edit"
+  get "/users/new" => "users#new"
   resources :users
 end

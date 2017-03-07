@@ -1,9 +1,8 @@
 <div class="page-header">
   <div class="navbar navbar-default" role="navigation">
-   <ul class="nav nav-tabs">
-     <li role="presentation" class="active"><%= link_to '編集',"users#edit"%></li>
-     <li role="presentation"><a href="#">Users</a></li>
-   </ul>
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><%= link_to '新規作成',new_user_path%></li>
+    </ul>
   </div>
 </div>
 
@@ -12,31 +11,42 @@
 <div class="container">
   <div class="col-md-12">
     <div class="table-responsive">
-    <table class="table table-bordered table-hover table-condensed">
-      <thead>
+      <table class="table table-bordered table-hover table-condensed">
+        <thead>
           <tr>
-          <th class="active">id</th>
-          <th>名前</th>
-          <th>パスワード</th>
-          <th>chatworkのid</th>
-          <th>スーパーユーザか</th>
-          <th></th>
-        </tr>
-      </thead>
+            <th class="active">id</th>
+            <th>名前</th>
+            <th>パスワード</th>
+            <th>chatworkのid</th>
+            <th>スーパーユーザか</th>
+            <th></th>
+          </tr>
+        </thead>
 
-      <tbody>
-        <% @users.each do |user| %>
-        <tr>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
             <td><%= user.id %></td>
             <td><%= user.name %></td>
             <td><%= user.password %></td>
             <td><%= user.chatworkid %></td>
             <td><%= user.superuser %></td>
-            <td><%= link_to '編集',edit_user_path(user),class:'btn btn-info btn-lg btn-block' %>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+            <td><%= link_to '編集',edit_user_path(user),class:'btn btn-info btn-lg btn-block' %></td>
+            <td><%= link_to '削除',user_path(user),class:'btn btn-info btn-lg btn-block',method: :delete,data:{confirm: '本当に削除しますか?'} %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <div class="class=text-center">
+        <%= link_to '新規作成',new_user_path,class:'btn btn-info btn-lg btn-block' %>
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+
 </div>

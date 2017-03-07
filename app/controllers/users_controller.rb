@@ -6,11 +6,24 @@ class UsersController < ApplicationController
   def update
     @user =User.find(params[:id])
     if @user.update(user_params)
-      redirect_to @user,notice:'更新しました'
+      redirect_to user_path,notice:'更新しました'
     else
       render:edit
     end
   end
+
+  def new
+    @user = User.create
+  end
+
+
+    def create
+      @user =User.create
+      if @user.save(user_params)
+      else
+        render :new
+      end
+    end
 
 
 
@@ -25,5 +38,11 @@ class UsersController < ApplicationController
     params.require(:user).permit(
     :name,:password,:chatworkid
     )
+  end
+
+  def destroy
+    @user=User.find(params[:id])
+    @user.destroy!
+    redirect_to user_path,notice:'削除しました'
   end
 end
