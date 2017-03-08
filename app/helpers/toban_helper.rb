@@ -1,0 +1,2 @@
+module TobanHelper
+end

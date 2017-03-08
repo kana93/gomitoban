@@ -1,0 +1,44 @@
+<div class="page-header">
+</div>
+
+<p>今日の日付は
+
+<%now =Time.now%>
+<%= now.strftime('%Y年%m月%d日')%>
+です。</p>
+<% args=Time.now.to_a%>
+<% s=args[6]%>
+<p>
+<% if (s===1)||(s===2)||(s===4) %>
+<%= '今日のごみ当番は' %>
+<% else%>
+<%= '次のごみ当番は'%>
+<% end %>
+<%= @user.name%>さんです。</p>
+
+  <p>
+  <% args=Time.now.to_a%>
+  <% s=args[6]%>
+  <%case s %>
+  <%when 1,4 %>
+  <%= '今日は燃えるごみの日です' %>
+  <%when 2 %>
+  <%= '今日は資源ごみの日です' %>
+  <%when 3 %>
+  <%= '木曜日に燃えるごみを捨ててください' %>
+  <%else%>
+  <%= '月曜日に燃えるごみを捨ててください' %>
+  <%end %>
+  </p>
+
+
+
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <div class="class=text-center">
+      <%= link_to 'ユーザー一覧へ',"/users",class:'btn btn-info btn-lg btn-block' %>
+    </div>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
