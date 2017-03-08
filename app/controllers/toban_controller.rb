@@ -2,7 +2,7 @@ class TobanController < ApplicationController
 
 
   def show
-    @user= User.last
+    @history= History.last
     respond_to do |format|
       format.html
     end
