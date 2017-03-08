@@ -14,7 +14,7 @@
       <table class="table table-bordered table-hover table-condensed">
         <thead>
           <tr>
-            <th class="active">id</th>
+            <th>id</th>
             <th>名前</th>
             <th>パスワード</th>
             <th>chatworkのid</th>
@@ -31,8 +31,8 @@
             <td><%= user.password %></td>
             <td><%= user.chatworkid %></td>
             <td><%= user.superuser %></td>
-            <td><%= link_to '編集',edit_user_path(user),class:'btn btn-info btn-lg btn-block' %></td>
-            <td><%= link_to '削除',user_path(user),class:'btn btn-info btn-lg btn-block',method: :delete,data:{confirm: '本当に削除しますか?'} %></td>
+            <td><%= link_to '編集',edit_user_path(user),class:'btn btn-info  btn-block' %></td>
+            <td><%= link_to '削除',user_path(user),class:'btn btn-danger btn-block',method: :delete,data:{confirm: '本当に削除しますか?'} %></td>
           </tr>
           <% end %>
         </tbody>
@@ -48,7 +48,7 @@
     </div>
     <div class="col-sm-3">
       <div class="class=text-center">
-        <%= link_to '当番画面へ戻る',"/toban",class:'btn btn-info btn-lg btn-block' %>
+        <%= link_to '戻る',"/toban",class:'btn btn-primary btn-lg btn-block' %>
       </div>
     </div>
     <div class="col-sm-3"></div>

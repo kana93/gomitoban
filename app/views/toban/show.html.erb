@@ -1,36 +1,53 @@
 <div class="page-header">
 </div>
 
-<p>今日の日付は
+<div class="page-header">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="row">
+      <div class="col-sm-8"></div>
+      <div class="col-sm-3">
+        <%now =Time.now%>
+        <%= now.strftime('%F(%a)')%>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </div>
 
-<%now =Time.now%>
-<%= now.strftime('%Y年%m月%d日')%>
-です。</p>
-<% args=Time.now.to_a%>
-<% s=args[6]%>
-<p>
-<% if (s===1)||(s===2)||(s===4) %>
-<%= '今日のごみ当番は' %>
-<% else%>
-<%= '次のごみ当番は'%>
-<% end %>
-<%= @user.name%>さんです。</p>
-
-  <p>
-  <% args=Time.now.to_a%>
-  <% s=args[6]%>
-  <%case s %>
-  <%when 1,4 %>
-  <%= '今日は燃えるごみの日です' %>
-  <%when 2 %>
-  <%= '今日は資源ごみの日です' %>
-  <%when 3 %>
-  <%= '木曜日に燃えるごみを捨ててください' %>
-  <%else%>
-  <%= '月曜日に燃えるごみを捨ててください' %>
-  <%end %>
-  </p>
-
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+    </p>
+    <% args=Time.now.to_a%>
+    <% s=args[6]%>
+    <p>
+      <% if (s===1)||(s===2)||(s===4) %>
+      <%= '今日のごみ当番は' %>
+      <% else%>
+      <%= '次のごみ当番は'%>
+      <% end %>
+      <%= @user.name%>さんです。
+    </p>
+  </div>
+  <div class="col-sm-2"></div>
+</div>
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <p>
+      <%case s %>
+      <%when 1,4 %>
+      <%= '今日は燃えるごみの日です' %>
+      <%when 2 %>
+      <%= '今日は資源ごみの日です' %>
+      <%when 3 %>
+      <%= '木曜日に燃えるごみを捨ててください' %>
+      <%else%>
+      <%= '月曜日に燃えるごみを捨ててください' %>
+      <%end %>
+    </p>
+  </div>
+  <div class="col-sm-2"></div>
+</div>
 
 
 <div class="row">
