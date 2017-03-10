@@ -12,9 +12,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-2">パスワード</div>
+    <div class="col-sm-2">パスワード(6文字以上)</div>
     <div class="col-sm-10 form-inline" style="padding: 3px;">
       <%= f.text_field :password, class:'form-control'%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">パスワード(確認)</div>
+    <div class="col-sm-10 form-inline" style="padding: 3px;">
+      <%= f.text_field :password_confirmation, class:'form-control'%>
     </div>
   </div>
   <div class="row">

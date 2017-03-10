@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path,notice:'更新しました'
     else
-      render:edit
+      flash.now[:danger] = "更新に失敗しました"
+      render 'edit'
     end
   end
 
@@ -17,13 +18,15 @@ class UsersController < ApplicationController
   end
 
 
-    def create
-      @user =User.create
-      if @user.save(user_params)
-      else
-        render :new
-      end
+  def create
+    @user =User.new(user_params)
+    if @user.save
+      redirect_to "/users",notice:'作成しました'
+    else
+      flash.now[:danger] = "新規作成に失敗しました"
+      render 'new'
     end
+  end
 
 
 
@@ -36,7 +39,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-    :name,:password,:chatworkid
+    :name,:password,:password_confirmation,:chatworkid
     )
   end
 

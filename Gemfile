@@ -32,6 +32,9 @@ gem 'autoprefixer-rails'
 
 gem 'rake', '12.0.0'
 
+#パスワードをハッシュ化するためのgem
+gem 'bcrypt',         '3.1.11'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

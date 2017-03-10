@@ -6,27 +6,44 @@
 <div class="container">
   <%= form_for(@user) do |f|%>
   <div class="row">
-    <div class="col-sm-2">名前</div>
-    <div class="col-sm-10 form-inline" style="padding: 3px;">
+    <div class="col-sm-4">名前</div>
+    <div class="col-sm-8 form-inline" style="padding: 3px;">
       <%= f.text_field :name, class:'form-control'%>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-2">パスワード</div>
-    <div class="col-sm-10 form-inline" style="padding: 3px;">
+    <div class="col-sm-4">パスワード(6文字以上)</div>
+    <div class="col-sm-8 form-inline" style="padding: 3px;">
       <%= f.text_field :password, class:'form-control'%>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-2">チャットワークID</div>
-    <div class="col-sm-10 form-inline" style="padding: 3px;">
+    <div class="col-sm-4">パスワード(確認)</div>
+    <div class="col-sm-8 form-inline" style="padding: 3px;">
+      <%= f.text_field :password_confirmation, class:'form-control'%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">チャットワークID</div>
+    <div class="col-sm-8 form-inline" style="padding: 3px;">
       <%= f.text_field :chatworkid, class:'form-control'%>
     </div>
   </div>
 
-
-  <div class="text-center" style="padding: 10px;">
-    <%= f.submit '作成',class: 'btn', data: { disable_with: '作成中' } %>
+  <div class="row">
+    <div class="col-sm-3" style="padding: 10px;"></div>
+    <div class="col-sm-3" style="padding: 10px;">
+      <div class="class=text-center">
+        <%= f.submit '作成',class: 'btn btn-info btn-lg', data: { disable_with: '作成中' } %>
+      <% end %>
+      </div>
+    </div>
+    <div class="col-sm-3" style="padding: 10px;">
+      <div class="class=text-center">
+        <%= link_to '戻る',"/users",class:'btn btn-info btn-lg' %>
+      </div>
+    </div>
+    <div class="col-sm-3" style="padding: 10px;"></div>
   </div>
-  <% end %>
+
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308065103) do
+ActiveRecord::Schema.define(version: 20170310050758) do
 
   create_table "histories", force: true do |t|
     t.integer  "tobanid"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170308065103) do
     t.boolean  "superuser"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end

@@ -1,0 +1,38 @@
+<h1>Sessions#new</h1>
+<p>Find me in app/views/sessions/new.html.erb</p>
+
+
+<div class="container">
+  <%= form_for(:session, url: login_path) do |f|%>
+  <div class="row">
+    <div class="col-sm-4">chatworkid</div>
+    <div class="col-sm-8 form-inline" style="padding: 3px;">
+      <% f.label :chatworkid %>
+      <%= f.text_field :chatworkid, class:'form-control'%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">パスワード</div>
+    <div class="col-sm-8 form-inline" style="padding: 3px;">
+      <% f.label :password %>
+      <%= f.text_field :password, class:'form-control'%>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-3" style="padding: 3px;"></div>
+    <div class="col-sm-3" style="padding: 3px;">
+      <div class="class=text-center">
+        <%= f.submit 'ログイン',class: 'btn btn-info btn-lg', data: { disable_with: 'ログイン中' } %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-3" style="padding: 3px;">
+      <div class="class=text-center">
+        <%= link_to '戻る',"/toban",class:'btn btn-info btn-lg' %>
+      </div>
+    </div>
+    <div class="col-sm-3" style="padding: 3px;"></div>
+  </div>
+</div>

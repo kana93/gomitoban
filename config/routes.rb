@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get "/users" => "users#show"
+  get "/users/edit" => "users#edit"
+  get "/users/new" => "users#new"
+  resources :users
+
+  get "/toban" => "toban#show"
+
+  get "/login" => "sessions#new"
+  post "/login" => "sessions#create"
+  delete "/logout" => "sessions#destoroy"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,10 +65,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  get "/users" => "users#show"
-  get "/users/edit" => "users#edit"
-  get "/users/new" => "users#new"
-  resources :users
 
-  get "/toban" => "toban#show"
   end
