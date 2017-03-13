@@ -14,15 +14,6 @@
 <body>
   <%= render "layouts/header" %>
 
-  <header class = "navbar navbar-default" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <% link_to 'Gomitoban',"/toban",class: "navbar-brand"%>
-      </div>
-    </div>
-  </header>
-
-
   <div class="container">
     <% if flash[:notice]%>
     <div class="alert alert-success">

@@ -28,12 +28,12 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
-    autoprefixer-rails (6.7.6)
+    autoprefixer-rails (6.7.7)
       execjs
     bcrypt (3.1.11)
-    bootstrap (4.0.0.alpha6)
-      autoprefixer-rails (>= 6.0.3)
-      sass (>= 3.4.19)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.3)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -110,7 +110,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.6)
+    uglifier (3.1.7)
       execjs (>= 0.3.0, < 3)
 
 PLATFORMS
@@ -119,7 +119,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bcrypt (= 3.1.11)
-  bootstrap (~> 4.0.0.alpha6)
+  bootstrap-sass (~> 3.3.6)
   coffee-rails (~> 4.0.0)
   jbuilder (~> 2.0)
   jquery-rails

@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="col-md-12">
     <div class="table-responsive">
@@ -20,27 +19,26 @@
             <td><%= user.name %></td>
             <td><%= user.chatworkid %></td>
             <td><%= user.superuser %></td>
-            <td><%= link_to '編集',edit_user_path(user),class:'btn btn-info  btn-block' %></td>
-            <td><%= link_to '削除',user_path(user),class:'btn btn-danger btn-block',method: :delete,data:{confirm: '本当に削除しますか?'} %></td>
+            <td><%= link_to '編集',edit_user_path(user),class:'btn btn-info btn-lg btn-block' %></td>
+            <td><%= link_to '削除',user_path(user),class:'btn btn-danger btn-lg btn-block',method: :delete,data:{confirm: '本当に削除しますか?'} %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-3">
-      <div class="class=text-center">
-        <%= link_to '新規作成',new_user_path,class:'btn btn-info btn-lg btn-block' %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="class=text-center">
-        <%= link_to '戻る',"/toban",class:'btn btn-primary btn-lg btn-block' %>
-      </div>
-    </div>
-    <div class="col-sm-3"></div>
-  </div>
 
+  <div class="row">
+    <div class="col-md-3 col-md-offset-3 col-sm-6 col-xs-6" style="padding=10px;">
+      <div class="class=text-center">
+        <%= link_to '新規作成',new_user_path,class:'btn btn-primary btn-lg btn-block' %>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-md-offset-1 col-sm-6 col-xs-6" style="padding=10px;">
+      <div class="class=text-center">
+        <%= link_to '戻る',"/toban",class:'btn btn-default btn-lg btn-block' %>
+      </div>
+    </div>
+  </div>
 </div>

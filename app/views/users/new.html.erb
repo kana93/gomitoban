@@ -1,55 +1,51 @@
-<%now = Time.zone.now %>
 <div class="page-header">
-  新規作成ページ
+  <p>新規作成ページ</p>
 </div>
 
 <div class="container">
   <%= form_for(@user) do |f|%>
   <div class="row">
     <div class="col-sm-4">名前</div>
-    <div class="col-sm-8 form-inline" style="padding: 3px;">
+    <div class="col-sm-8" style="padding: 3px;">
       <%= f.text_field :name, class:'form-control'%>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-4">パスワード(6文字以上)</div>
-    <div class="col-sm-8 form-inline" style="padding: 3px;">
+    <div class="col-sm-8" style="padding: 3px;">
       <%= f.password_field :password, class:'form-control'%>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-4">パスワード(確認用)</div>
-    <div class="col-sm-8 form-inline" style="padding: 3px;">
+    <div class="col-sm-8 " style="padding: 3px;">
       <%= f.password_field :password_confirmation, class:'form-control'%>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-4">チャットワークID</div>
-    <div class="col-sm-8 form-inline" style="padding: 3px;">
+    <div class="col-sm-8 " style="padding: 3px;">
       <%= f.text_field :chatworkid, class:'form-control'%>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-4">スーパーユーザーの場合はチェック</div>
-    <div class="col-sm-8 form-inline" style="padding: 3px;">
+    <div class="col-sm-8" style="padding: 3px;">
       <%= f.check_box :superuser,{},"true","false"%>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-sm-3" style="padding: 10px;"></div>
-    <div class="col-sm-3" style="padding: 10px;">
+    <div class="col-md-3 col-md-offset-3 col-sm-6 col-xs-6" style="padding=10px;">
       <div class="class=text-center">
-        <%= f.submit '作成',class: 'btn btn-info btn-lg', data: { disable_with: '作成中' } %>
-      <% end %>
+        <%= f.submit '新規作成する',class: 'btn btn-primary btn-lg btn-block', data: { disable_with: '作成中' } %>
+        <% end%>
       </div>
     </div>
-    <div class="col-sm-3" style="padding: 10px;">
+    <div class="col-md-3 col-md-offset-1 col-sm-6 col-xs-6" style="padding=10px;">
       <div class="class=text-center">
-        <%= link_to '戻る',"/users",class:'btn btn-info btn-lg' %>
+        <%= link_to '戻る',"/users",class:'btn btn-default btn-lg btn-block' %>
       </div>
     </div>
-    <div class="col-sm-3" style="padding: 10px;"></div>
   </div>
-
 </div>
