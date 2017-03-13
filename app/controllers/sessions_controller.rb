@@ -10,11 +10,11 @@ class SessionsController < ApplicationController
         #superuserがtrueならスーパーユーザーとしてユーザー画面にログイン
         redirect_to "/users",notice:'ユーザー画面です'
       else
-        redirect_to "/toban",notice:'スーパーユーザーではありません'
+        redirect_to "/toban",alert:'スーパーユーザーではありません'
       end
 
     else
-      flash.now[:danger] = 'Invalid id/password combination'
+      flash.now[:danger] = 'Invalid chatworkid/password combination'
       render 'new'
     end
   end

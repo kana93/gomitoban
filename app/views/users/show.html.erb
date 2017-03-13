@@ -1,12 +1,3 @@
-<div class="page-header">
-  <div class="navbar navbar-default" role="navigation">
-    <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><%= link_to '新規作成',new_user_path%></li>
-    </ul>
-  </div>
-</div>
-
-<span class=‘glyphicon glyphicon-heart’ aria-hidden=‘true’></span>
 
 <div class="container">
   <div class="col-md-12">
@@ -16,7 +7,6 @@
           <tr>
             <th>id</th>
             <th>名前</th>
-            <th>パスワード</th>
             <th>chatworkのid</th>
             <th>スーパーユーザか</th>
             <th></th>
@@ -28,7 +18,6 @@
           <tr>
             <td><%= user.id %></td>
             <td><%= user.name %></td>
-            <td><%= user.password %></td>
             <td><%= user.chatworkid %></td>
             <td><%= user.superuser %></td>
             <td><%= link_to '編集',edit_user_path(user),class:'btn btn-info  btn-block' %></td>

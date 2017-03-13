@@ -2,17 +2,44 @@
 <html>
 <head>
   <title>Gomitoban</title>
+  <meta charset="utf-8">
+  <meta name = "viesport" content="width=device-widthmubutuak0scake=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
 </head>
 <body>
+  <%= render "layouts/header" %>
 
-  <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
+  <header class = "navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <% link_to 'Gomitoban',"/toban",class: "navbar-brand"%>
+      </div>
+    </div>
+  </header>
 
+
+  <div class="container">
+    <% if flash[:notice]%>
+    <div class="alert alert-success">
+      <%= flash[:notice]%>
+      <% end%>
+    </div>
+  </div>
+  <div class="container">
+    <% if flash[:alert]%>
+    <div class="alert alert-danger">
+      <%= flash[:alert]%>
+      <% end%>
+    </div>
+  </div>
+  <div class="container">
     <%= yield %>
+  </div>
 
 </body>
 </html>

@@ -14,19 +14,25 @@
   <div class="row">
     <div class="col-sm-4">パスワード(6文字以上)</div>
     <div class="col-sm-8 form-inline" style="padding: 3px;">
-      <%= f.text_field :password, class:'form-control'%>
+      <%= f.password_field :password, class:'form-control'%>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4">パスワード(確認)</div>
+    <div class="col-sm-4">パスワード(確認用)</div>
     <div class="col-sm-8 form-inline" style="padding: 3px;">
-      <%= f.text_field :password_confirmation, class:'form-control'%>
+      <%= f.password_field :password_confirmation, class:'form-control'%>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-4">チャットワークID</div>
     <div class="col-sm-8 form-inline" style="padding: 3px;">
       <%= f.text_field :chatworkid, class:'form-control'%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">スーパーユーザーの場合はチェック</div>
+    <div class="col-sm-8 form-inline" style="padding: 3px;">
+      <%= f.check_box :superuser,{},"true","false"%>
     </div>
   </div>
 

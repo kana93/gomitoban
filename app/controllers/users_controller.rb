@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-    :name,:password,:password_confirmation,:chatworkid
+    :name,:password,:chatworkid,:password_confirmation,:superuser
     )
   end
 
