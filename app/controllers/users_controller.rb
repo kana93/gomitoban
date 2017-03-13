@@ -8,8 +8,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path,notice:'更新しました'
     else
-      flash.now[:danger] = "更新に失敗しました"
-      render 'edit'
+      redirect_to edit_user_path,alert:'更新に失敗しました'
     end
   end
 
@@ -23,8 +22,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to "/users",notice:'作成しました'
     else
-      flash.now[:danger] = "新規作成に失敗しました"
-      render 'new'
+      redirect_to new_user_path,alert:'新規作成に失敗しました'
     end
   end
 

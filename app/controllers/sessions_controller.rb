@@ -14,8 +14,7 @@ class SessionsController < ApplicationController
       end
 
     else
-      flash.now[:danger] = 'Invalid chatworkid/password combination'
-      render 'new'
+      redirect_to "/login",alert: 'chatworkidまたはpasswordが無効です'
     end
   end
 
