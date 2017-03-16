@@ -20,4 +20,16 @@ class TobanController < ApplicationController
     end
   end
 
+  def create_every
+    users=User.order(:id)
+    history=History.last
+
+    builder=Builder::Tobanbuilder.new
+    next_history=builder.next_gomitoban(history.user_id,users.ids)
+    next_history.save
+  end
+
+
+
+
 end
