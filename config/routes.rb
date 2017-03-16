@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
 
   get "/toban" => "toban#show"
+  post "/toban" => "toban#create"
 
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"

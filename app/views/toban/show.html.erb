@@ -9,63 +9,65 @@
   </div>
 </div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+  </p>
+  <% args=Time.now.to_a%>
+  <% s=args[6]%>
+  <div class="text-left">
+    <p>
+      <% if (s===1)||(s===2)||(s===4) %>
+      <%= '今日のごみ当番は' %>
+      <% else%>
+      <%= '次のごみ当番は'%>
+      <% end %>
     </p>
-    <% args=Time.now.to_a%>
-    <% s=args[6]%>
-    <div class="text-left">
-      <p>
-        <% if (s===1)||(s===2)||(s===4) %>
-        <%= '今日のごみ当番は' %>
-        <% else%>
-        <%= '次のごみ当番は'%>
-        <% end %>
-      </p>
-    </div>
-    <div class="text-center">
-      <h1><%= @history.user.name%>
-      </h1>
-    </div>
-    <div class=text-right><p>さんです。</p></div>
   </div>
-  <div class="col-md-2 col-sm-2"></div>
+  <div class="text-center">
+    <h1><%= @history.user.name%>
+    </h1>
+  </div>
+  <div class=text-right><p>さんです。</p></div>
+</div>
+<div class="col-md-2 col-sm-2"></div>
 </div>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <div class="text-center">
-    <p>
-      <%case s %>
-      <%when 1,4 %>
-      <%= '今日は'%>
-      <strong><%='燃えるごみ'%></strong>
-      <%='の日です' %>
-      <%when 2 %>
-      <%= '今日は'%>
-      <strong><%='資源ごみ'%></strong>
-      <%='の日です' %>
-      <%when 3 %>
-      <%= '木曜日に'%>
-      <strong><%='燃えるごみ'%></strong>
-      <%='を捨ててください' %>
-          <%else%>
-          <%= '月曜日に'%>
-          <strong><%='燃えるごみ'%></strong>
-          <%='を捨ててください' %>
-      <%end %>
-    </p>
-  </div>
+      <p>
+        <%case s %>
+        <%when 1,4 %>
+        <%= '今日は'%>
+        <strong><%='燃えるごみ'%></strong>
+        <%='の日です' %>
+        <%when 2 %>
+        <%= '今日は'%>
+        <strong><%='資源ごみ'%></strong>
+        <%='の日です' %>
+        <%when 3 %>
+        <%= '木曜日に'%>
+        <strong><%='燃えるごみ'%></strong>
+        <%='を捨ててください' %>
+        <%else%>
+        <%= '月曜日に'%>
+        <strong><%='燃えるごみ'%></strong>
+        <%='を捨ててください' %>
+        <%end %>
+      </p>
+    </div>
   </div>
   <div class="col-md-2"></div>
 </div>
 
-
 <div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-6">
+  <div class="col-md-3 col-md-offset-3 col-sm-6 col-xs-6" style="padding=10px;">
     <div class="class=text-center">
       <%= link_to 'ユーザー一覧へ',"/login",class:'btn btn-info btn-lg btn-block' %>
     </div>
   </div>
-  <div class="col-md-3"></div>
+  <div class="col-md-3 col-md-offset-1 col-sm-6 col-xs-6" style="padding=10px;">
+    <div class="class=text-center">
+      <%= link_to 'とばす',toban_path,class:'btn btn-danger btn-lg btn-block',method: :create,data:{confirm: '本当にとばしますか?'} %>
+    </div>
+  </div>
 </div>

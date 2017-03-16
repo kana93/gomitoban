@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to 'ユーザーをみる',"/login"%></li>
-        <li><a href="#">とばす</a></li>
+        <li><%= link_to 'とばす',toban_path,method: :create,data:{confirm: '本当にとばしますか?'} %>
       </ul>
     </div><!-- /.navbar-collapse -->
 

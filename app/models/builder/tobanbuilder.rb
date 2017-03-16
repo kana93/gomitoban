@@ -1,15 +1,14 @@
 #コード単体で動かしてテストするためのclass
-class History
-  attr_accessor :user_id,:gomidasibi
-  def initialize
-  end
-end
+#class History
+#  attr_accessor :user_id,:gomidasibi
+#  def initialize
+#  end
+#end
 
 module Builder
 end
 
-class Builder::TobanBuilder
-
+class Builder::Tobanbuilder
   # ここから下は新しい実装
   # 新しいIDが戻り値
   def next_id(old_id,array)
@@ -44,5 +43,5 @@ class Builder::TobanBuilder
   end
 end
 #テスト用
-builder=Builder::TobanBuilder.new
+builder=Builder::Tobanbuilder.new
 builder.next_gomitoban(15,[3,6,12,14,15,70])
