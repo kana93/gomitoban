@@ -8,7 +8,7 @@
             <th>名前</th>
             <th>ログインid</th>
             <th>chatworkのid</th>
-            <th>スーパーユーザか</th>
+            <th>スーパーユーザ</th>
             <th></th>
           </tr>
         </thead>
@@ -20,11 +20,11 @@
             <td><%= user.name %></td>
             <td><%= user.login_id %></td>
             <td><%= user.chatworkid %></td>
-            <td><%= user.superuser %></td>
+            <td><%=user.superuser %></td>
             <td><%= link_to '編集',edit_user_path(user),class:'btn btn-info btn-lg btn-block' %></td>
             <td><%= link_to '削除',user_path(user),class:'btn btn-danger btn-lg btn-block',method: :delete,data:{confirm: '本当に削除しますか?'} %></td>
           </tr>
-          <% end %>
+            <% end%>
         </tbody>
       </table>
     </div>

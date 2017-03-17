@@ -11,6 +11,18 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-md-4">チャットワークID</div>
+    <div class="col-md-8" style="padding: 3px;">
+      <%= f.text_field :chatworkid, class:'form-control'%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">ログインid</div>
+    <div class="col-md-8" style="padding: 3px;">
+      <%= f.text_field :login_id, class:'form-control'%>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-4">パスワード(6文字以上)</div>
     <div class="col-md-8" style="padding: 3px;">
       <%= f.password_field :password, class:'form-control'%>
@@ -20,12 +32,6 @@
     <div class="col-md-4">パスワード(確認)</div>
     <div class="col-md-8" style="padding: 3px;">
       <%= f.password_field :password_confirmation, class:'form-control'%>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">チャットワークID</div>
-    <div class="col-md-8" style="padding: 3px;">
-      <%= f.text_field :chatworkid, class:'form-control'%>
     </div>
   </div>
 

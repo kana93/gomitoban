@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in user
       #superuserがtrueならスーパーユーザーとしてユーザー画面にログイン
-      redirect_to "/users",notice:'ログインしました'
+      redirect_to "/toban",notice:'ログインしました'
 
     else
       redirect_to "/login",alert: 'ログインidまたはpasswordが無効です'

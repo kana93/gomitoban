@@ -4,6 +4,12 @@
       <div class="text-right">
         <%now =Time.now%>
         <%= now.strftime('%F(%a)')%>
+        <% if logged_in? %>
+        <p class="text-right ">
+          <%= current_user.name%>さんとしてログインしています
+        </p>
+        <%end%>
+        
       </div>
     </div>
   </div>
@@ -60,14 +66,25 @@
 </div>
 
 <div class="row">
-  <div class="col-md-3 col-md-offset-3 col-sm-6 col-xs-6" style="padding=10px;">
+  <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12" style="padding=10px;">
     <div class="class=text-center">
-      <%= link_to 'ユーザー一覧へ',"/login",class:'btn btn-info btn-lg btn-block' %>
-    </div>
-  </div>
-  <div class="col-md-3 col-md-offset-1 col-sm-6 col-xs-6" style="padding=10px;">
-    <div class="class=text-center">
-      <%= link_to 'とばす',toban_path,class:'btn btn-danger btn-lg btn-block',method: :create,data:{confirm: '本当にとばしますか?'} %>
+      <% if logged_in?%>
+      <% if current_user.superuser%>
+      <%= link_to 'ユーザー一覧へ',"/users",class:'btn btn-info btn-lg btn-block' %>
+      <% end %>
+      <% end %>
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12" style="padding=10px;">
+    <div class="class=text-center">
+      <% if logged_in?%>
+      <% if current_user==@history.user &&((Date.today< @history.gomidasibi)||( (Date.today == @history.gomidasibi) &&('18:00' > Time.zone.now.to_s(:time))))
+        %>
+        <%= link_to 'とばす',toban_path,class:'btn btn-danger btn-lg btn-block',method: :create,data:{confirm: '本当にとばしますか?'} %>
+        <% end%>
+        <% end%>
+      </div>
+    </div>
+  </div>
