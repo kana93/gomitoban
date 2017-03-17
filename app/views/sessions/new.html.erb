@@ -6,10 +6,10 @@
 <div class="container">
   <%= form_for(:session, url: login_path) do |f|%>
   <div class="row">
-    <div class="col-sm-4">chatworkid</div>
+    <div class="col-sm-4">ログインid</div>
     <div class="col-sm-8" style="padding: 3px;">
-      <% f.label :chatworkid %>
-      <%= f.text_field :chatworkid, class:'form-control'%>
+      <% f.label :login_id %>
+      <%= f.text_field :login_id, class:'form-control'%>
     </div>
   </div>
   <div class="row">
