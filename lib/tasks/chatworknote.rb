@@ -1,28 +1,38 @@
-class Builder::Chatworknote
-  def decide_message
+require "#{Rails.root}/app/models/user"
+require "#{Rails.root}/app/models/history"
+require "chatwork"
+
+module Tasks
+end
+
+class Tasks::Chatworknote
+  def self.decide_message
     s=Date.today.wday
     case s
     when 1,4
       "燃えるごみを捨ててください"
     when 2
       "資源ごみを捨ててください"
+    else
+      h=History.last
+      h.user.name
+      #{}"何も捨てなくていいです"
     end
   end
 
-  def decide_toids
+  def self.decide_toids
     h=History.last
     h.user.chatworkid
   end
 
-  def notify
-    require "chatwork"
+  def self.notify
     message=decide_message
     toids=decide_toids
-    ChatWork.api_key = 
-    ChatWork::Task.create(room_id: "",body: message,to_ids:toids)
+    ChatWork.api_key ="fc5a8f1e12360112df2de5af8b77363d"
+    ChatWork::Task.create(room_id: "65100577",body: message,to_ids:toids)
   end
 
 end
 
-builder=Builder::Chatworknote.new
-builder.notify
+#builder=Chatworknote.new
+#builder.notify

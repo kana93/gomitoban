@@ -20,7 +20,7 @@ class TobanController < ApplicationController
     end
   end
 
-  def create_every
+  def self.create_every
     users=User.order(:id)
     history=History.last
 

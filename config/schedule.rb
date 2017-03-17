@@ -22,9 +22,16 @@
 
 require File.expand_path(File.dirname(__FILE__) + "/environment")
 set :output, 'log/cron.log'
+set :environment, @environment
+#環境変数の指定
+job_type :runner, "PATH=$PATH:/usr/local/bin && cd :path && bundle exec bin/rails runner -e :environment ':task' :output"
 
 #ごみの日当日18時に通知
-every '8 18 16 3 * ' do
-  runner 'Builder::Chatworknote.notify'
+# crontab型の設定「分」「時」「日」「月」「曜日」
+every '00 18 * * 1,2,4' do
+  runner "Tasks::Chatworknote.notify"
 end
-#ごみの日当日の18時に通知をする
+#当番のリセット
+every '00 00 * * 1,2,4' do
+  runner "TobanController.new.create_every"
+end
