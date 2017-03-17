@@ -8,16 +8,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-    <%= link_to 'Gomitoban',"/toban",class: "navbar-brand" %>
+      <%= link_to 'Gomitoban',"/toban",class: "navbar-brand" %>
+      <% if logged_in? %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'ユーザーをみる',"/login"%></li>
-        <li><%= link_to 'とばす',toban_path,method: :create,data:{confirm: '本当にとばしますか?'} %>
+        <li><%= link_to 'ログアウト',logout_path%></li>
+        <% else %>
+        <li><%= link_to 'ログイン',login_path%></li>
+        <% end %>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
 
-  </div><!-- /.container-fluid -->
+  </div>
 </nav>
+
+<% if logged_in? %>
+<p class="text-right ">
+<%= current_user.name%>さんとしてログインしています
+</p>
+<%end%>

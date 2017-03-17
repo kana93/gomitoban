@@ -6,18 +6,16 @@ class SessionsController < ApplicationController
     user=User.find_by(login_id: params[:session][:login_id])
     if user && user.authenticate(params[:session][:password])
       log_in user
-      if user.superuser
-        #superuserがtrueならスーパーユーザーとしてユーザー画面にログイン
-        redirect_to "/users",notice:'ユーザー画面です'
-      else
-        redirect_to "/toban",alert:'スーパーユーザーではありません'
-      end
+      #superuserがtrueならスーパーユーザーとしてユーザー画面にログイン
+      redirect_to "/users",notice:'ログインしました'
 
     else
-      redirect_to "/login",alert: 'chatworkidまたはpasswordが無効です'
+      redirect_to "/login",alert: 'ログインidまたはpasswordが無効です'
     end
   end
 
   def destroy
+    reset_session
+    redirect_to toban_path,notice:'ログアウトしました'
   end
 end

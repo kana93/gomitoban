@@ -23,8 +23,8 @@ module Gomitoban
     #config.autoload_paths += %W(#{config.root}/lib)
     #config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
+    #runnerでlib配下のディレクトリをロードするため
     config.eager_load_paths += %W(#{config.root}/lib/)
-
 
   end
 end
