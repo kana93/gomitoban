@@ -30,6 +30,4 @@ class TobanController < ApplicationController
   end
 
 
-
-
 end

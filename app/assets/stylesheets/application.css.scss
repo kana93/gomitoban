@@ -30,7 +30,7 @@ body {
   modal-title-padding: 30px;
 }
 
-.col-md-6{
+.col-md-6,.col-md-3{
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -38,7 +38,8 @@ body {
   padding-top: 10px;
 }
 
-.col-sm-12{
+
+.col-sm-6,.col-sm-12,.col-xs-6{
   position: relative;
   min-height: 1px;
   padding-left: 15px;
