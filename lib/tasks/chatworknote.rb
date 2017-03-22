@@ -28,8 +28,9 @@ class Tasks::Chatworknote
   def self.notify
     message=decide_message
     toids=decide_toids
-    ChatWork.api_key =""
-    ChatWork::Task.create(room_id: "",body: message,to_ids:toids)
+    roomid=Settings.chatwork.rid
+    ChatWork.api_key = Settings.chatwork.api_token
+    ChatWork::Task.create(room_id:roomid,body: message,to_ids:toids)
   end
 
 end

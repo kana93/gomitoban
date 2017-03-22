@@ -46,6 +46,8 @@ end
 gem 'chatwork'
 #定期実行のためのgem
 gem 'whenever', require: false
+#定数一元管理のためのgem
+gem "config"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
