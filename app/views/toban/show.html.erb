@@ -10,61 +10,53 @@
 </div>
 
 <div class="row">
-  <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-  </p>
-  <% args=Time.now.to_a%>
-  <% s=args[6]%>
-  <div class="text-left">
-    <p>
-      <% if (s===1)||(s===2)||(s===4) %>
-      <%= '今日のごみ当番は' %>
-      <% else%>
-      <%= '次のごみ当番は'%>
-      <% end %>
-    </p>
-  </div>
   <div class="text-center">
-    <h1><%= @history.user.name%>
-    </h1>
+    <% args=Time.now.to_a%>
+    <% s=args[6]%>
+    <% if (s===1)||(s===2)||(s===4) %>
+    <%= '今日のごみ当番は' %>
+    <% else%>
+    <%= '次のごみ当番は'%>
+    <% end %>
+    <span style="font-size:30pt;"><%= @history.user.name%></span>
+    さんです。
   </div>
-  <div class=text-right><p>さんです。</p></div>
 </div>
-<div class="col-md-2 col-sm-2"></div>
+
 </div>
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-12">
     <div class="text-center">
       <p>
         <%case s %>
         <%when 1,4 %>
         <%= '今日は'%>
-        <strong><%='燃えるごみ'%></strong>
+        <span style="font-size:20pt;"><%='燃えるごみ'%></span>
         <%='の日です' %>
         <%when 2 %>
         <%= '今日は'%>
-        <strong><%='資源ごみ'%></strong>
+        <span style="font-size:20pt;"><%='資源ごみ'%></span>
         <%='の日です' %>
         <%when 3 %>
         <%= '木曜日に'%>
-        <strong><%='燃えるごみ'%></strong>
+        <span style="font-size:20pt;"><%='燃えるごみ'%></span>
         <%='を捨ててください' %>
         <%else%>
         <%= '月曜日に'%>
-        <strong><%='燃えるごみ'%></strong>
+        <span style="font-size:20pt;"><%='資源ごみ'%></span>
         <%='を捨ててください' %>
         <%end %>
       </p>
     </div>
   </div>
-  <div class="col-md-2"></div>
 </div>
 
 
-<p class="text-center ">
+<p class="text-center">
   <% if logged_in? %>
   <%= current_user.name%>さんとしてログインしています。<%= link_to 'ログアウト',"/logout"%>
   <% else %>
-  登録ユーザー一覧を見たり、ごみ当番をとばすためには、<%= link_to 'ログイン',"/login"%>が必要です
+  ごみ当番をとばすためには、<%= link_to 'ログイン',"/login"%>が必要です
   <%end%>
 </p>
 
