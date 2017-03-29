@@ -13,10 +13,6 @@ class Tasks::Chatworknote
       "燃えるごみを捨ててください"
     when 2
       "資源ごみを捨ててください"
-    else
-      h=History.last
-      h.user.name
-      #{}"何も捨てなくていいです"
     end
   end
 
@@ -28,8 +24,9 @@ class Tasks::Chatworknote
   def self.notify
     message=decide_message
     toids=decide_toids
-    roomid=Settings.chatwork.rid
     ChatWork.api_key = Settings.chatwork.api_token
+    r = ChatWork::Room.get&.detect {|r| r['name'] == Settings.chatwork.room_name }
+    roomid=r['room_id']
     ChatWork::Task.create(room_id:roomid,body: message,to_ids:toids)
   end
 

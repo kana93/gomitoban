@@ -46,3 +46,5 @@ bower.json
 
 # ingore macOS hidden file
 .DS_store
+
+config/settings.local.yml
