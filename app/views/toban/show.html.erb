@@ -1,84 +1,87 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8">
-      <div class="text-right">
-        <%now =Time.now%>
-        <%= now.strftime('%F(%a)')%>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8">
+        <div class="text-right">
+          <%now =Time.now%>
+          <%= now.strftime('%F(%a)')%>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="text-center">
-    <% args=Time.now.to_a%>
-    <% s=args[6]%>
-    <% if (s===1)||(s===2)||(s===4) %>
-    <%= '今日のごみ当番は' %>
-    <% else%>
-    <%= '次のごみ当番は'%>
-    <% end %>
-    <span style="font-size:30pt;"><%= @history.user.name%></span>
-    さんです。
-  </div>
-</div>
-
-</div>
-<div class="row">
-  <div class="col-md-12">
+  <div class="row">
     <div class="text-center">
-      <p>
-        <%case s %>
-        <%when 1,4 %>
-        <%= '今日は'%>
-        <span style="font-size:20pt;"><%='燃えるごみ'%></span>
-        <%='の日です' %>
-        <%when 2 %>
-        <%= '今日は'%>
-        <span style="font-size:20pt;"><%='資源ごみ'%></span>
-        <%='の日です' %>
-        <%when 3 %>
-        <%= '木曜日に'%>
-        <span style="font-size:20pt;"><%='燃えるごみ'%></span>
-        <%='を捨ててください' %>
-        <%else%>
-        <%= '月曜日に'%>
-        <span style="font-size:20pt;"><%='資源ごみ'%></span>
-        <%='を捨ててください' %>
-        <%end %>
-      </p>
+      <% args=Time.now.to_a%>
+      <% s=args[6]%>
+      <% if (s===1)||(s===2)||(s===4) %>
+      <%= '今日のごみ当番は' %>
+      <% else%>
+      <%= '次のごみ当番は'%>
+      <% end %>
+      <span style="font-size:30pt;"><%= @history.user.name%></span>
+      さんです。
     </div>
   </div>
-</div>
 
 
-<p class="text-center">
-  <% if logged_in? %>
-  <%= current_user.name%>さんとしてログインしています。<%= link_to 'ログアウト',"/logout"%>
-  <% else %>
-  ごみ当番をとばすためには、<%= link_to 'ログイン',"/login"%>が必要です
-  <%end%>
-</p>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
-    <div class="class=text-center">
-      <% if logged_in?%>
-      <% if current_user.superuser%>
-      <%= link_to 'ユーザー一覧へ',"/users",class:'btn btn-info btn-lg btn-block' %>
-      <% end %>
-      <% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center">
+        <p>
+          <%case s %>
+          <%when 1,4 %>
+          <%= '今日は'%>
+          <span style="font-size:20pt;"><%='燃えるごみ'%></span>
+          <%='の日です' %>
+          <%when 2 %>
+          <%= '今日は'%>
+          <span style="font-size:20pt;"><%='資源ごみ'%></span>
+          <%='の日です' %>
+          <%when 3 %>
+          <%= '木曜日に'%>
+          <span style="font-size:20pt;"><%='燃えるごみ'%></span>
+          <%='を捨ててください' %>
+          <%else%>
+          <%= '月曜日に'%>
+          <span style="font-size:20pt;"><%='資源ごみ'%></span>
+          <%='を捨ててください' %>
+          <%end %>
+        </p>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
-    <div class="class=text-center" style="margin=10px;">
-      <% if logged_in?%>
-      <% if Policy::Ableskip.check(current_user,@history.user,@history.gomidasibi) %>
-      <%= link_to 'とばす',toban_path,class:'btn btn-danger btn-lg btn-block',method: :create,data:{confirm: '本当にとばしますか?'} %>
-      <% end%>
-      <% end%>
+
+
+
+  <p class="text-center">
+    <% if logged_in? %>
+    <%= current_user.name%>さんとしてログインしています。<%= link_to 'ログアウト',"/logout"%>
+    <% else %>
+    ごみ当番をとばすためには、<%= link_to 'ログイン',"/login"%>が必要です
+    <%end%>
+  </p>
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+      <div class="class=text-center">
+        <% if logged_in?%>
+        <% if current_user.superuser%>
+        <%= link_to 'ユーザー一覧へ',"/users",class:'btn btn-info btn-lg btn-block' %>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+      <div class="class=text-center">
+        <% if logged_in?%>
+        <% if Policy::Ableskip.check(current_user,@history.user,@history.gomidasibi) %>
+        <%= link_to 'とばす',toban_path,class:'btn btn-danger btn-lg btn-block',method: :create,data:{confirm: '本当にとばしますか?'} %>
+        <% end%>
+        <% end%>
+      </div>
     </div>
   </div>
 </div>

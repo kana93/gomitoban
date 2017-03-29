@@ -14,7 +14,7 @@ class TobanController < ApplicationController
     builder=Builder::Tobanbuilder.new
     next_history=builder.next_gomitoban(history.user_id,users.ids)
     if next_history.save
-      redirect_to "/toban",notice:'とばしました!'
+      redirect_to "/toban",notice:'とばしました'
     else
       redirect_to "/toban",alert:'失敗しました'
     end
